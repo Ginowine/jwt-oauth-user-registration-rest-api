@@ -1,0 +1,47 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: Iv1.a851a50a84d42a53
+            client-secret: 902941b02def9911fef8144eb6706095ae99a7ae
+          google:
+            client-id: 524476464221-duc4mej9k6vg0i415uo6ts9n96u3u5m6.apps.googleusercontent.com
+            client-secret: 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
+  datasource:
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/registration
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: localhost
+    port: 1025
+    username: hello
+    password: hello
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: "*"
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+
