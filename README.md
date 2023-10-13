@@ -1,6 +1,6 @@
 # Spring Boot 3.0 JWT OAuth2 User Registration and CRUD Rest API
 
-This project demonstrates the implementation of security using Spring Boot 3.0 and JSON Web Tokens (JWT). It includes the following features:
+This project demonstrates the implementation of security using Spring Boot 3.0, JSON Web Tokens (JWT), OAuth, and user CRUD operations. It includes the following features:
 
 ## Features
 
