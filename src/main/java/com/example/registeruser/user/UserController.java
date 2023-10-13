@@ -10,26 +10,28 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/v1/auth/user")
+@RequestMapping("/api/v1/auth/users")
 @RequiredArgsConstructor
 public class UserController {
 
     private UserService userService;
 
+    // http://localhost:8080/api/v1/auth/users/1
     @GetMapping(value = "/{id}")
     @RolesAllowed({ "USER", "ADMIN"})
     public ResponseEntity<User> getUserById(@PathVariable("id") Long userId) {
         User user = userService.getUserById(userId);
-
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
+    // http://localhost:8080/api/v1/auth/users
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers(){
         List<User> users = userService.getAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
+    // http://localhost:8080/api/v1/auth/users/1
     @PutMapping("{id}")
     public ResponseEntity<User> updateUser(@PathVariable("id") Long userId, @RequestBody User user){
         user.setId(userId);
