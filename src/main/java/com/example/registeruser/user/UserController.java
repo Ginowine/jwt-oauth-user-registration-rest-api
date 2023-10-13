@@ -41,7 +41,7 @@ public class UserController {
         return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }
 
-    // http://localhost:8080/api/v1/auth/users/delete/1
+    // http://localhost:8080/api/v1/auth/users/delete/1 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable("id") Long userId){
         userServiceImpl.deleteUser(userId);
