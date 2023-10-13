@@ -2,7 +2,7 @@
 
 This project demonstrates the implementation of security using Spring Boot 3.0 and JSON Web Tokens (JWT). It includes the following features:
 
-# Features
+## Features
 
 - User Registration and Login with JWT and OAuth2 Authentication
 - Password encryption using BCrypt
@@ -12,7 +12,7 @@ This project demonstrates the implementation of security using Spring Boot 3.0 a
 - CRUD Operations on Users
 
 
-# Technologies
+## Technologies
 
 - Spring Boot 3.0
 - Spring Security
@@ -21,14 +21,14 @@ This project demonstrates the implementation of security using Spring Boot 3.0 a
 - BCrypt
 - Maven
 
-# Getting Started
+## Getting Started
 
 To get started with this project, you will need to have the following installed on your local machine:
 
 - JDK 17+
 - Maven 3+
 
-# To build and run the project, follow these steps:
+## To build and run the project, follow these steps:
 
 - Clone the repository: git clone https://github.com/ali-bouali/spring-boot-3-jwt-security.git
 - Navigate to the project directory: cd spring-boot-security-jwt
@@ -37,7 +37,7 @@ To get started with this project, you will need to have the following installed 
 - Run the project: ```mvn spring-boot:run```
 -> The application will be available at http://localhost:8080.
 
-# Exposed APIs
+## Exposed APIs
 
 ## Register a user
 
