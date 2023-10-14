@@ -41,7 +41,7 @@ To get started with this project, you will need to have the following installed 
 
 ## Register a user
 
-http://localhost:8080/api/v1/auth/register
+http://localhost:8080/api/v1/auth/register 
 
 You need to use a POST request on Postman and then enter a request body
 ```
@@ -65,20 +65,21 @@ You need to use a POST request on Postman and then enter a request body
 	"password": "enter registration password"
 }
 ```
-## Authorize a user 
+## Use the generated token to access other endpoints - GET
 
 http://localhost:8080/api/v1/demo-controller
 
 - You need to use a GET request and authorize a user 
-- Enter token generated from previous step 
+- Enter token generated from the previous step
+- Token name is Bearer token
 
-## Get all users
-http://localhost:8080/api/v1/auth/users
+## Get all users - GET
+http://localhost:8080/api/v1/users
 
-## Update a user
-http://localhost:8080/api/v1/auth/users/update/1
+## Update a user - PUT
+http://localhost:8080/api/v1/users/update/1
 
-Use a POST request to update user and enter request body
+Use a PUT request to update user and enter request body
 
 ```
   {
@@ -90,10 +91,10 @@ Use a POST request to update user and enter request body
 ```
 
 ## Delete a user
-http://localhost:8080/api/v1/auth/users/delete/1
+http://localhost:8080/api/v1/users/delete/1
 
 ## Get a user 
-http://localhost:8080/api/v1/auth/users/1
+http://localhost:8080/api/v1/users/1
 
 ## Signin with GitHub
 http://localhost:8080/oauth2/authorization/github
