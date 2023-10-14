@@ -7,18 +7,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
-
 @RestController
-@RequestMapping("/api/v1/auth/users")
+@RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
 public class UserController {
-
     @Autowired
     private UserServiceImpl userServiceImpl;
 
-    // http://localhost:8080/api/v1/auth/users/1
+    // GET http://localhost:8080/api/v1/users/1
     @GetMapping(value = "/{id}")
     @RolesAllowed({ "USER", "ADMIN"})
     public ResponseEntity<User> getUserById(@PathVariable("id") Long userId) {
@@ -26,14 +25,14 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-    // http://localhost:8080/api/v1/auth/users
+    // GET http://localhost:8080/api/v1/users
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers(){
         List<User> users = userServiceImpl.getAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-    // http://localhost:8080/api/v1/auth/users/update/1
+    // PUT http://localhost:8080/api/v1/users/update/1
     @PutMapping("/update/{id}")
     public ResponseEntity<User> updateUser(@PathVariable("id") Long userId, @RequestBody User user){
         user.setId(userId);
@@ -41,10 +40,20 @@ public class UserController {
         return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }
 
-    // http://localhost:8080/api/v1/auth/users/delete/1 
+    // DELETE http://localhost:8080/api/v1/users/delete/1
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable("id") Long userId){
         userServiceImpl.deleteUser(userId);
         return new ResponseEntity<>("User successfully deleted!", HttpStatus.OK);
+    }
+
+    // PATCH http://localhost:8080/api/v1/users
+    @PostMapping
+    public ResponseEntity<?> changePassword(
+            @RequestBody ChangePasswordRequest request,
+            Principal connectedUser
+    ){
+        userServiceImpl.changePassword(request, connectedUser);
+        return ResponseEntity.accepted().build();
     }
 }
